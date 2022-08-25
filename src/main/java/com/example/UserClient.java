@@ -24,12 +24,12 @@ public class UserClient {
     }
 
     @Step("Авторизовать пользователя")
-    public Response loginUser(String accessToken) {
+    public Response loginUser(Credentials credentials) {
         return given()
                 .log().all()
                 .baseUri(BASE_URL)
                 .contentType(ContentType.JSON)
-                .header("authorization", accessToken)
+                .body(credentials)
                 .when()
                 .post(USER_LOGIN_PATH);
     }

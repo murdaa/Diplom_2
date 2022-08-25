@@ -24,9 +24,9 @@ public class UserCreationTest extends UserClient {
         String expected = "true";
         Assert.assertEquals(actual, expected);
 
-        //получение AccessToken для последующего логина и удаления пользователя
+        //логин и удаление пользователя после теста
         String accessToken = response.path("accessToken").toString();
-        loginUser(accessToken);
+        loginUser(new Credentials(email, password));
         deleteUser(accessToken);
     }
 
@@ -56,8 +56,8 @@ public class UserCreationTest extends UserClient {
         String expected = "User already exists";
         Assert.assertEquals(actual, expected);
 
-        //получение AccessToken для последующего логина и удаления пользователя
-        loginUser(accessToken);
+        //логин и удаление пользователя после теста
+        loginUser(new Credentials(email, password));
         deleteUser(accessToken);
 }
 
