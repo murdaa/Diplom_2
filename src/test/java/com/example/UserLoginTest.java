@@ -12,7 +12,7 @@ public class UserLoginTest extends  UserClient {
     @Test
     @DisplayName("User valid login")
     @Description("To verify user login with valid credentials")
-    public void userLoginTest() {
+    public void userValidLoginTest() {
 
         String email = RandomStringUtils.randomAlphanumeric(5) + "@yandex.ru";
         String password = RandomStringUtils.randomAlphanumeric(8);
@@ -60,5 +60,4 @@ public class UserLoginTest extends  UserClient {
         //удаление пользователя после теста
         deleteUser(accessToken);
     }
-
 }

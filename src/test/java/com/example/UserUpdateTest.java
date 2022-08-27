@@ -25,7 +25,7 @@ public class UserUpdateTest extends UserClient {
 
         //логин пользователя
         Credentials userCredentials = new Credentials(email, password);
-        loginUser(userCredentials);
+        loginUser(userCredentials).then().assertThat().statusCode(200);
 
         //тест обновления данных
         UserInfo userInfo = new UserInfo(email, "updated name");
@@ -54,7 +54,7 @@ public class UserUpdateTest extends UserClient {
 
         //логин пользователя
         Credentials userCredentials = new Credentials(email, password);
-        loginUser(userCredentials);
+        loginUser(userCredentials).then().assertThat().statusCode(200);
 
         //тест обновления данных
         UserInfo userInfo = new UserInfo("updatedemail@yandex.ru", name);
@@ -83,7 +83,7 @@ public class UserUpdateTest extends UserClient {
 
         //логин пользователя
         Credentials userCredentials = new Credentials(email, password);
-        loginUser(userCredentials);
+        loginUser(userCredentials).then().assertThat().statusCode(200);
 
         //тест обновления данных
         UserInfo userInfo = new UserInfo("updatedemail@yandex.ru", name);
@@ -112,7 +112,7 @@ public class UserUpdateTest extends UserClient {
 
         //логин пользователя
         Credentials userCredentials = new Credentials(email, password);
-        loginUser(userCredentials);
+        loginUser(userCredentials).then().assertThat().statusCode(200);
 
         //тест обновления данных
         UserInfo userInfo = new UserInfo(email, "updated name");
@@ -124,5 +124,4 @@ public class UserUpdateTest extends UserClient {
         //удаление пользователя после теста
         deleteUser(accessToken);
     }
-
 }

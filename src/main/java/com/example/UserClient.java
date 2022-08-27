@@ -77,7 +77,6 @@ public class UserClient {
                 .when()
                 .patch(USER_DELETE_OR_UPDATE_PATH);
     }
-
 }
 
 

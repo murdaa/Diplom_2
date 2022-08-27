@@ -10,9 +10,7 @@ public class UserInfo {
         this.name = name;
     }
 
-    public UserInfo() {
-
-    }
+    public UserInfo() {}
 
     public String getEmail() {
         return email;

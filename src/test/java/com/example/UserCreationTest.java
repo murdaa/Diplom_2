@@ -60,5 +60,4 @@ public class UserCreationTest extends UserClient {
         loginUser(new Credentials(email, password));
         deleteUser(accessToken);
 }
-
 }
