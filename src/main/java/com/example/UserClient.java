@@ -13,10 +13,11 @@ public class UserClient {
     private static final String BASE_URL = "https://stellarburgers.nomoreparties.site";
 
     @Step("Создать пользователя")
-    public Response create(User user) {
+    public static Response create(User user) {
         return given()
                 .log().all()
                 .baseUri(BASE_URL)
+                .accept(ContentType.JSON)
                 .contentType(ContentType.JSON)
                 .body(user)
                 .when()
@@ -24,10 +25,11 @@ public class UserClient {
     }
 
     @Step("Авторизовать пользователя")
-    public Response loginUser(Credentials credentials) {
+    public static Response loginUser(Credentials credentials) {
         return given()
                 .log().all()
                 .baseUri(BASE_URL)
+                .accept(ContentType.JSON)
                 .contentType(ContentType.JSON)
                 .body(credentials)
                 .when()
@@ -35,10 +37,11 @@ public class UserClient {
     }
 
     @Step("Удалить пользователя")
-    public Response deleteUser(String accessToken) {
+    public static Response deleteUser(String accessToken) {
         return given()
                 .log().all()
                 .baseUri(BASE_URL)
+                .accept(ContentType.JSON)
                 .contentType(ContentType.JSON)
                 .header("authorization", accessToken)
                 .when()
@@ -51,10 +54,11 @@ public class UserClient {
     }
 
     @Step("Обновить пользователя с авторизацией")
-    public Response updateUser(UserInfo userInfo, String accessToken) {
+    public static Response updateUser(UserInfo userInfo, String accessToken) {
         return given()
                 .log().all()
                 .baseUri(BASE_URL)
+                .accept(ContentType.JSON)
                 .contentType(ContentType.JSON)
                 .header("authorization", accessToken)
                 .body(userInfo)
@@ -63,10 +67,11 @@ public class UserClient {
     }
 
     @Step("Обновить пользователя без авторизации")
-    public Response updateUserWithoutAuth(UserInfo userInfo) {
+    public static Response updateUserWithoutAuth(UserInfo userInfo) {
         return given()
                 .log().all()
                 .baseUri(BASE_URL)
+                .accept(ContentType.JSON)
                 .contentType(ContentType.JSON)
                 .body(userInfo)
                 .when()

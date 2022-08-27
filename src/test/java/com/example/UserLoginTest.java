@@ -26,6 +26,7 @@ public class UserLoginTest extends  UserClient {
         //проверка валидного логина
         Credentials userCredentials = new Credentials(email, password);
         Response response = loginUser(userCredentials);
+        response.then().assertThat().statusCode(200).extract().response();
         String actual = response.path("success").toString();
         String expected = "true";
         Assert.assertEquals(actual, expected);
@@ -51,6 +52,7 @@ public class UserLoginTest extends  UserClient {
         //проверка невалидного логина
         Credentials userCredentials = new Credentials(email, null);
         Response response = loginUser(userCredentials);
+        response.then().assertThat().statusCode(401).extract().response();
         String actual = response.path("message").toString();
         String expected = "email or password are incorrect";
         Assert.assertEquals(actual, expected);
